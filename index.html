@@ -59,7 +59,6 @@
       }
       function restart() {
 	speed = 10;
-	context = canvas.getContext('2d');
         snake.x = 160;
         snake.y = 160;
         snake.cells = [];
@@ -73,6 +72,7 @@
 	}
 	else {
 	canvas = document.getElementById('game');
+	context = canvas.getContext('2d');
 	}
       }
 function difficultyHard() {
