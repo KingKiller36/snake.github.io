@@ -27,45 +27,53 @@
 <canvas width="400" height="400" id="game"></canvas>
 <canvas width="200" height="200" class="breakGame" id="crashed"></canvas>
 <script>
-var canvas = document.getElementById('game');
-var context = canvas.getContext('2d');
-var grid = 16;
-var count = 0;
-var speed = 10;
-var canCollide = true;
-var snake = {
-  x: 160,
-  y: 160,
-  
-  // snake velocity. moves one grid length every frame in either the x or y direction
-  dx: grid,
-  dy: 0,
-  
-  // keep track of all grids the snake body occupies
-  cells: [],
-  
-  // length of the snake. grows when eating an apple
-  maxCells: 4
-};
-var score = snake.maxCells-4;
-//cheats
-function addRandomScore() {
-  snake.maxCells += getRandomInt(0, 50);
-}
-function resetApple() {
-  apple.x = getRandomInt(0, 25);
-  apple.y = getRandomInt(0, 25);
-}
-function restart() {
-  snake.x = 160;
-  snake.y = 160;
-  snake.cells = [];
-  snake.maxCells = 4;
-  snake.dx = grid;
-  snake.dy = 0;
-  apple.x = getRandomInt(0, 25) * grid;
-  apple.y = getRandomInt(0, 25) * grid;
-}
+      var canvas = document.getElementById('game');
+      var context = canvas.getContext('2d');
+      var grid = 16;
+      var count = 0;
+      var speed = 10;
+      var canCollide = true;
+      var crashed = false;
+      var snake = {
+        x: 160,
+        y: 160,
+        
+        // snake velocity. moves one grid length every frame in either the x or y direction
+        dx: grid,
+        dy: 0,
+        
+        // keep track of all grids the snake body occupies
+        cells: [],
+        
+        // length of the snake. grows when eating an apple
+        maxCells: 4
+      };
+      var score = snake.maxCells-4;
+      //cheats
+      function addRandomScore() {
+        snake.maxCells += getRandomInt(0, 50);
+      }
+      function resetApple() {
+        apple.x = getRandomInt(0, 25)*grid;
+        apple.y = getRandomInt(0, 25)*grid;
+      }
+      function restart() {
+	speed = 10;
+	context = canvas.getContext('2d');
+        snake.x = 160;
+        snake.y = 160;
+        snake.cells = [];
+        snake.maxCells = 4;
+        snake.dx = grid;
+        snake.dy = 0;
+        apple.x = getRandomInt(0, 25) * grid;
+        apple.y = getRandomInt(0, 25) * grid;
+	if(crashed == ture) {
+	console.log('You thought you could get away with crashing the game?');
+	}
+	else {
+	canvas = document.getElementById('game');
+	}
 function difficultyHard() {
   speed = 3;
 }
@@ -73,7 +81,7 @@ function difficultyMed() {
   speed = 5;
 }
 function difficultyEasy() {
-  speed = 10;
+  speed = 7;
 }
 function breakApple() {
   apple.y = 200;
