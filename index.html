@@ -90,6 +90,7 @@ function breakApple() {
 function crashGame() {
   speed = 0;
   canvas = document.getElementById('crashed');
+  crashed = true;
   setTimeout(step1(), 30000);
 }
 function step1() {
