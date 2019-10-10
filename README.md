@@ -1,2 +1,2 @@
 # snake-game
-a game of snake
+This is the source code of an simple snake game.
