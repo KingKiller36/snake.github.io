@@ -71,7 +71,6 @@
 	console.log('You thought you could get away with crashing the game?');
 	} else {
 	canvas = document.getElementById('game');
-	context = canvas.getContext('2d');
 	}
       }
 function difficultyHard() {
@@ -99,10 +98,6 @@ function step1() {
 }
 function step2() {
   snake.maxCells = 100000;
-  setTimeout(step3(), 30000);
-}
-function step3() {
-  context = 0;
 }
 function info() {
   console.log('Speed: ' + speed);
